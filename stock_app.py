@@ -1,12 +1,19 @@
+# Suppress all tensorflow warnings
+import silence_tensorflow.auto
+import tensorflow as tf
+
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 import pandas as pd
 import plotly.graph_objs as go
 from dash.dependencies import Input, Output
 from keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
 import numpy as np
+
+# Suppress all SettingWithCopyWarning warnings
+np.warnings.filterwarnings('ignore')
 
 app = dash.Dash()
 server = app.server
